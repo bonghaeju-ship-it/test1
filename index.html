@@ -2,10 +2,9 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Premium Lotto - 눈이 편안한 추첨기</title>
     <link rel="stylesheet" href="./style.css">
-    <!-- Google Fonts for better typography -->
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -15,14 +14,13 @@
 
     <div class="main-container">
         <header>
-            <h1>프리미엄 로또 추첨기</h1>
-            <p class="subtitle">금주의 가상 당첨 번호와 행운의 5세트</p>
+            <h1>프리미엄 로또</h1>
+            <p class="subtitle">당첨 번호와 행운의 5세트</p>
         </header>
 
         <section class="winning-section">
             <h3>가상 당첨 번호</h3>
             <div id="winning-numbers-display" class="winning-display">
-                <!-- Winning numbers will appear here -->
                 <div class="lotto-row placeholder-row">
                     <div class="ball placeholder">?</div>
                     <div class="ball placeholder">?</div>
@@ -41,6 +39,7 @@
         <section class="result-section">
             <h3>나의 행운 번호 (5세트)</h3>
             <div id="lotto-display-area" class="display-area">
+                <!-- Initial placeholder reduced to 1 row for mobile compactness -->
                 <div class="lotto-row placeholder-row">
                     <div class="ball placeholder">?</div>
                     <div class="ball placeholder">?</div>
@@ -53,7 +52,7 @@
         </section>
 
         <div class="action-area">
-            <button id="generate-btn">행운의 번호 모두 추첨하기</button>
+            <button id="generate-btn">지금 추첨하기</button>
         </div>
     </div>
 
