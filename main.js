@@ -1,4 +1,29 @@
-document.getElementById('generate-btn').addEventListener('click', generateLottoNumbers);
+const generateBtn = document.getElementById('generate-btn');
+const themeToggle = document.getElementById('theme-toggle');
+
+// Initialize Theme
+const currentTheme = localStorage.getItem('theme') || 'light';
+if (currentTheme === 'dark') {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  themeToggle.innerText = '☀️ 라이트 모드';
+}
+
+// Theme Toggle Event
+themeToggle.addEventListener('click', () => {
+  let theme = document.documentElement.getAttribute('data-theme');
+  if (theme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+    themeToggle.innerText = '🌙 다크 모드';
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+    themeToggle.innerText = '☀️ 라이트 모드';
+  }
+});
+
+// Generate Numbers Event
+generateBtn.addEventListener('click', generateLottoNumbers);
 
 function generateLottoNumbers() {
   const numbers = [];
