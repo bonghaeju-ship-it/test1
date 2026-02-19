@@ -29,6 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     inquiryToggleBtn.addEventListener('click', () => {
         inquiryCard.classList.toggle('active');
+        if (inquiryCard.classList.contains('active')) {
+            commentsCard.classList.remove('active');
+        }
+    });
+
+    // 1.2 Comments Toggle
+    const commentsToggleBtn = document.getElementById('comments-toggle-btn');
+    const commentsCard = document.querySelector('.comments-card');
+
+    commentsToggleBtn.addEventListener('click', () => {
+        commentsCard.classList.toggle('active');
+        if (commentsCard.classList.contains('active')) {
+            inquiryCard.classList.remove('active');
+        }
     });
 
     // 2. Lotto Generation Logic

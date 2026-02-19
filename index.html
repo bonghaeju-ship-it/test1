@@ -23,6 +23,22 @@
                 </form>
             </div>
         </div>
+
+        <div class="comments-card">
+            <button id="comments-toggle-btn" class="toggle-card-btn">💬 댓글 남기기</button>
+            <div id="comments-container" class="comments-content">
+                <div id="disqus_thread"></div>
+                <script>
+                    (function() {
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://tester260220.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </div>
     </div>
 
     <div class="main-container">
