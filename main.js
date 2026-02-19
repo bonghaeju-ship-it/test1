@@ -23,6 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
         updateThemeToggleButton(newTheme);
     });
 
+    // 1.1 Inquiry Toggle
+    const inquiryToggleBtn = document.getElementById('inquiry-toggle-btn');
+    const inquiryCard = document.querySelector('.inquiry-card');
+
+    inquiryToggleBtn.addEventListener('click', () => {
+        inquiryCard.classList.toggle('active');
+    });
+
     // 2. Lotto Generation Logic
     const generateNumbers = (count = 6) => {
         const numbers = new Set();
