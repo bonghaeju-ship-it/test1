@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Premium Lotto - 눈이 편안한 추첨기</title>
+    <title>프리미엄 로또 추첨기 - 스마트하고 편안한 번호 생성</title>
+    <meta name="description" content="눈이 편안한 디자인과 스마트한 알고리즘으로 제공되는 프리미엄 로또 번호 추첨기입니다. 5세트 동시 생성, 당첨 번호 시뮬레이션 기능을 무료로 이용하세요.">
+    <meta name="keywords" content="로또추첨기, 로또번호생성기, 무료로또, 로또당첨번호, 행운의번호">
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Google AdSense -->
@@ -16,8 +18,16 @@
             <button id="theme-toggle" aria-label="테마 전환">🌙 다크 모드</button>
         </div>
 
+        <div class="info-card">
+            <button id="info-toggle-btn" class="toggle-card-btn">ℹ️ 이용 안내</button>
+            <div id="info-container" class="info-content">
+                <p>본 추첨기는 무작위 알고리즘을 사용하여 번호를 생성합니다. 로또 복권의 당첨을 보장하지 않으며, 재미와 참고용으로만 사용해 주시기 바랍니다.</p>
+                <p><strong>이용 팁:</strong> 하단의 '지금 추첨하기' 버튼을 누르면 당첨 번호와 5세트의 번호가 즉시 생성됩니다.</p>
+            </div>
+        </div>
+
         <div class="inquiry-card">
-            <button id="inquiry-toggle-btn" class="toggle-card-btn">🤝 제휴 문의</button>
+            <button id="inquiry-toggle-btn" class="toggle-card-btn">🤝 제휴 및 문의</button>
             <div id="inquiry-form-container" class="inquiry-content">
                 <form action="https://formspree.io/f/xbdaknnq" method="POST" class="inquiry-form">
                     <input type="email" name="email" placeholder="이메일 주소" required>
@@ -28,7 +38,7 @@
         </div>
 
         <div class="comments-card">
-            <button id="comments-toggle-btn" class="toggle-card-btn">💬 댓글 남기기</button>
+            <button id="comments-toggle-btn" class="toggle-card-btn">💬 커뮤니티</button>
             <div id="comments-container" class="comments-content">
                 <div id="disqus_thread"></div>
                 <script>
@@ -39,13 +49,11 @@
                         (d.head || d.body).appendChild(s);
                     })();
                 </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
         </div>
     </div>
 
     <div class="main-container">
-        <!-- Top Ad Unit -->
         <div class="ad-container top-ad">
             <ins class="adsbygoogle"
                  style="display:block"
@@ -60,11 +68,11 @@
 
         <header>
             <h1>프리미엄 로또</h1>
-            <p class="subtitle">당첨 번호와 행운의 5세트</p>
+            <p class="subtitle">고급 알고리즘 기반 행운의 번호 생성기</p>
         </header>
 
         <section class="winning-section">
-            <h3>가상 당첨 번호</h3>
+            <h3 class="section-title">가상 당첨 번호 시뮬레이션</h3>
             <div id="winning-numbers-display" class="winning-display">
                 <div class="lotto-row placeholder-row">
                     <div class="ball placeholder">?</div>
@@ -82,7 +90,7 @@
         <hr class="divider">
 
         <section class="result-section">
-            <h3>나의 행운 번호 (5세트)</h3>
+            <h3 class="section-title">추천 행운 번호 (5세트)</h3>
             <div id="lotto-display-area" class="display-area">
                 <div class="lotto-row placeholder-row">
                     <div class="ball placeholder">?</div>
@@ -96,10 +104,13 @@
         </section>
 
         <div class="action-area">
-            <button id="generate-btn">지금 추첨하기</button>
+            <button id="generate-btn">지금 번호 생성하기</button>
         </div>
 
-        <!-- Bottom Ad Unit -->
+        <footer class="legal-links">
+            <a href="#" id="privacy-link">개인정보처리방침</a> | <a href="#" id="terms-link">이용약관</a>
+        </footer>
+
         <div class="ad-container bottom-ad">
             <ins class="adsbygoogle"
                  style="display:block"
@@ -110,6 +121,14 @@
             <script>
                  (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
+        </div>
+    </div>
+
+    <!-- Legal Modals -->
+    <div id="legal-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body"></div>
         </div>
     </div>
 
