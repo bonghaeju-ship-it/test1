@@ -7,8 +7,18 @@
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
+  <div class="container">
+    <h1>로또 번호 추첨기</h1>
+    <div id="lotto-numbers" class="numbers-container">
+      <div class="ball placeholder">?</div>
+      <div class="ball placeholder">?</div>
+      <div class="ball placeholder">?</div>
+      <div class="ball placeholder">?</div>
+      <div class="ball placeholder">?</div>
+      <div class="ball placeholder">?</div>
+    </div>
+    <button id="generate-btn">번호 추첨하기</button>
+  </div>
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>
