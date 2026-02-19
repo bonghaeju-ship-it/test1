@@ -1,29 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Premium Lotto Generator</title>
-  <link href='./style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Lotto - 눈이 편안한 추첨기</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="theme-switch-wrapper">
-    <button id="theme-toggle">🌙 다크 모드</button>
-  </div>
-  <div class="container">
-    <h1>로또 번호 추첨기</h1>
-    <div id="lotto-numbers" class="numbers-container">
-      <div class="lotto-row">
-        <div class="ball placeholder">?</div>
-        <div class="ball placeholder">?</div>
-        <div class="ball placeholder">?</div>
-        <div class="ball placeholder">?</div>
-        <div class="ball placeholder">?</div>
-        <div class="ball placeholder">?</div>
-      </div>
+    <div class="theme-switch-wrapper">
+        <button id="theme-toggle" aria-label="테마 전환">🌙 다크 모드</button>
     </div>
-    <button id="generate-btn">번호 5세트 추첨하기</button>
-  </div>
-  <script defer type="text/javascript" src="./main.js"></script>
+
+    <div class="main-container">
+        <header>
+            <h1>로또 번호 추첨기</h1>
+            <p class="subtitle">한 번에 5세트의 행운을 확인하세요</p>
+        </header>
+
+        <div id="lotto-display-area" class="display-area">
+            <!-- 초기 상태의 플레이스홀더 -->
+            <div class="lotto-row placeholder-row">
+                <div class="ball placeholder">?</div>
+                <div class="ball placeholder">?</div>
+                <div class="ball placeholder">?</div>
+                <div class="ball placeholder">?</div>
+                <div class="ball placeholder">?</div>
+                <div class="ball placeholder">?</div>
+            </div>
+        </div>
+
+        <div class="action-area">
+            <button id="generate-btn">행운의 번호 5세트 추첨하기</button>
+        </div>
+    </div>
+
+    <script src="./main.js" defer></script>
 </body>
 </html>
