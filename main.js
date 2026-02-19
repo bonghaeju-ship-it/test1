@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const generateBtn = document.getElementById('generate-btn');
     const themeToggle = document.getElementById('theme-toggle');
+    const winningDisplay = document.getElementById('winning-numbers-display');
     const displayArea = document.getElementById('lotto-display-area');
 
     // 1. Theme Management
@@ -17,18 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggle.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('lotto-theme', newTheme);
         updateThemeToggleButton(newTheme);
     });
 
-    // 2. Lotto Number Generation
-    const generateNumbers = () => {
+    // 2. Lotto Generation Logic
+    const generateNumbers = (count = 6) => {
         const numbers = new Set();
-        while (numbers.size < 6) {
-            const num = Math.floor(Math.random() * 45) + 1;
-            numbers.add(num);
+        while (numbers.size < count) {
+            numbers.add(Math.floor(Math.random() * 45) + 1);
         }
         return Array.from(numbers).sort((a, b) => a - b);
     };
@@ -41,34 +40,59 @@ document.addEventListener('DOMContentLoaded', () => {
         return 'num-41-45';
     };
 
-    const createLottoRow = (numbers) => {
+    const createBall = (num) => {
+        const ball = document.createElement('div');
+        ball.className = `ball ${getBallColorClass(num)}`;
+        ball.innerText = num;
+        return ball;
+    };
+
+    const createWinningRow = () => {
+        const mainNumbers = generateNumbers(6);
+        let bonusNum;
+        do {
+            bonusNum = Math.floor(Math.random() * 45) + 1;
+        } while (mainNumbers.includes(bonusNum));
+
         const row = document.createElement('div');
         row.className = 'lotto-row';
         
-        numbers.forEach(num => {
-            const ball = document.createElement('div');
-            ball.className = `ball ${getBallColorClass(num)}`;
-            ball.innerText = num;
-            row.appendChild(ball);
-        });
+        mainNumbers.forEach(num => row.appendChild(createBall(num)));
         
+        const plus = document.createElement('div');
+        plus.className = 'plus-sign';
+        plus.innerText = '+';
+        row.appendChild(plus);
+        
+        row.appendChild(createBall(bonusNum));
         return row;
     };
 
+    const createLottoRow = (numbers) => {
+        const row = document.createElement('div');
+        row.className = 'lotto-row';
+        numbers.forEach(num => row.appendChild(createBall(num)));
+        return row;
+    };
+
+    // 3. Action
     generateBtn.addEventListener('click', () => {
-        // Clear area
+        // Clear previous
+        winningDisplay.innerHTML = '';
         displayArea.innerHTML = '';
         
-        // Generate 5 rows
+        // Winning Numbers
+        const winningRow = createWinningRow();
+        winningDisplay.appendChild(winningRow);
+        
+        // 5 sets
         for (let i = 0; i < 5; i++) {
-            const numbers = generateNumbers();
+            const numbers = generateNumbers(6);
             const row = createLottoRow(numbers);
-            // Staggered animation
-            row.style.animationDelay = `${i * 0.1}s`;
+            row.style.animationDelay = `${(i + 1) * 0.1}s`;
             displayArea.appendChild(row);
         }
     });
 
-    // Initialize
     initTheme();
 });

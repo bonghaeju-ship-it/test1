@@ -15,24 +15,45 @@
 
     <div class="main-container">
         <header>
-            <h1>로또 번호 추첨기</h1>
-            <p class="subtitle">한 번에 5세트의 행운을 확인하세요</p>
+            <h1>프리미엄 로또 추첨기</h1>
+            <p class="subtitle">금주의 가상 당첨 번호와 행운의 5세트</p>
         </header>
 
-        <div id="lotto-display-area" class="display-area">
-            <!-- 초기 상태의 플레이스홀더 -->
-            <div class="lotto-row placeholder-row">
-                <div class="ball placeholder">?</div>
-                <div class="ball placeholder">?</div>
-                <div class="ball placeholder">?</div>
-                <div class="ball placeholder">?</div>
-                <div class="ball placeholder">?</div>
-                <div class="ball placeholder">?</div>
+        <section class="winning-section">
+            <h3>가상 당첨 번호</h3>
+            <div id="winning-numbers-display" class="winning-display">
+                <!-- Winning numbers will appear here -->
+                <div class="lotto-row placeholder-row">
+                    <div class="ball placeholder">?</div>
+                    <div class="ball placeholder">?</div>
+                    <div class="ball placeholder">?</div>
+                    <div class="ball placeholder">?</div>
+                    <div class="ball placeholder">?</div>
+                    <div class="ball placeholder">?</div>
+                    <div class="plus-sign">+</div>
+                    <div class="ball placeholder">?</div>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <hr class="divider">
+
+        <section class="result-section">
+            <h3>나의 행운 번호 (5세트)</h3>
+            <div id="lotto-display-area" class="display-area">
+                <div class="lotto-row placeholder-row">
+                    <div class="ball placeholder">?</div>
+                    <div class="ball placeholder">?</div>
+                    <div class="ball placeholder">?</div>
+                    <div class="ball placeholder">?</div>
+                    <div class="ball placeholder">?</div>
+                    <div class="ball placeholder">?</div>
+                </div>
+            </div>
+        </section>
 
         <div class="action-area">
-            <button id="generate-btn">행운의 번호 5세트 추첨하기</button>
+            <button id="generate-btn">행운의 번호 모두 추첨하기</button>
         </div>
     </div>
 
