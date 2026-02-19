@@ -1,5 +1,6 @@
 const generateBtn = document.getElementById('generate-btn');
 const themeToggle = document.getElementById('theme-toggle');
+const lottoContainer = document.getElementById('lotto-numbers');
 
 // Initialize Theme
 const currentTheme = localStorage.getItem('theme') || 'light';
@@ -22,10 +23,17 @@ themeToggle.addEventListener('click', () => {
   }
 });
 
-// Generate Numbers Event
-generateBtn.addEventListener('click', generateLottoNumbers);
+// Generate 5 sets of Lotto Numbers
+generateBtn.addEventListener('click', () => {
+  lottoContainer.innerHTML = ''; // Clear previous numbers
+  for (let i = 0; i < 5; i++) {
+    const numbers = generateOneSet();
+    const row = createLottoRow(numbers);
+    lottoContainer.appendChild(row);
+  }
+});
 
-function generateLottoNumbers() {
+function generateOneSet() {
   const numbers = [];
   while (numbers.length < 6) {
     const num = Math.floor(Math.random() * 45) + 1;
@@ -33,31 +41,27 @@ function generateLottoNumbers() {
       numbers.push(num);
     }
   }
+  return numbers.sort((a, b) => a - b);
+}
 
-  // Sort numbers in ascending order
-  numbers.sort((a, b) => a - b);
-
-  const container = document.getElementById('lotto-numbers');
-  container.innerHTML = ''; // Clear previous numbers
-
+function createLottoRow(numbers) {
+  const row = document.createElement('div');
+  row.classList.add('lotto-row');
+  
   numbers.forEach(num => {
     const ball = document.createElement('div');
     ball.classList.add('ball');
     ball.innerText = num;
     
-    // Assign color based on the number range
-    if (num <= 10) {
-      ball.classList.add('color-yellow');
-    } else if (num <= 20) {
-      ball.classList.add('color-blue');
-    } else if (num <= 30) {
-      ball.classList.add('color-red');
-    } else if (num <= 40) {
-      ball.classList.add('color-grey');
-    } else {
-      ball.classList.add('color-green');
-    }
+    // Assign muted color based on the number range
+    if (num <= 10) ball.classList.add('color-yellow');
+    else if (num <= 20) ball.classList.add('color-blue');
+    else if (num <= 30) ball.classList.add('color-red');
+    else if (num <= 40) ball.classList.add('color-grey');
+    else ball.classList.add('color-green');
 
-    container.appendChild(ball);
+    row.appendChild(ball);
   });
+  
+  return row;
 }
